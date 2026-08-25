@@ -1,0 +1,1086 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Fill the Gap | Community Support in St. John's, Newfoundland & Labrador</title>
+  <meta name="description" content="Helping bridge the gaps between people, community resources, and the support they need across St. John's and Newfoundland & Labrador.">
+  
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=Outfit:wght@500;600;700;800;900&display=swap" rel="stylesheet">
+  
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          fontFamily: {
+            sans: ['"Plus Jakarta Sans"', 'system-ui', 'sans-serif'],
+            display: ['"Outfit"', 'system-ui', 'sans-serif'],
+          },
+          colors: {
+            brand: {
+              dark: '#0f172a',
+              card: '#1A0B36',
+              gold: '#E5A93C',
+              goldLight: '#F3BA4F',
+              goldDark: '#D4972B',
+              bgLight: '#f8fafc',
+            }
+          }
+        }
+      }
+    }
+  </script>
+
+  <style>
+    body {
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      background-color: #f8fafc;
+      color: #1c1917;
+    }
+    .font-display {
+      font-family: 'Outfit', sans-serif;
+    }
+    .tab-content {
+      display: none;
+    }
+    .tab-content.active {
+      display: block;
+      animation: fadeIn 0.3s ease-out;
+    }
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(4px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+  </style>
+</head>
+<body class="min-h-screen flex flex-col antialiased">
+
+  <!-- ========================================================================= -->
+  <!-- NAVBAR -->
+  <!-- ========================================================================= -->
+  <header class="sticky top-0 z-40 bg-[#0f172a]/95 backdrop-blur-md border-b border-slate-200 shadow-lg text-white">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="flex items-center justify-between h-20">
+        
+        <!-- Logo Brand -->
+        <a href="#home" onclick="switchTab('home'); return false;" class="flex items-center gap-3 group text-left">
+          <div class="w-11 h-11 rounded-2xl bg-[#0f172a] border border-[#E5A93C]/50 flex items-center justify-center shadow-lg group-hover:scale-105 transition-transform shrink-0">
+            <svg class="w-6 h-6 text-[#F3BA4F]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z" />
+            </svg>
+          </div>
+          <div class="flex flex-col">
+            <span class="font-display font-black text-xl tracking-tight uppercase leading-none text-white">
+              FILL THE GAP <span class="text-[#F3BA4F]">NL</span>
+            </span>
+            <span class="text-[10px] uppercase tracking-widest text-slate-800 font-bold mt-1">
+              St. John's, Newfoundland & Labrador
+            </span>
+          </div>
+        </a>
+
+        <!-- Desktop Navigation -->
+        <nav class="hidden lg:flex items-center gap-1">
+          <button onclick="switchTab('home')" class="nav-btn px-3 py-2 text-xs font-bold uppercase tracking-wider rounded-xl transition-all text-[#F3BA4F] bg-[#0f172a]" data-tab="home">Home</button>
+          <button onclick="switchTab('about')" class="nav-btn px-3 py-2 text-xs font-bold uppercase tracking-wider rounded-xl transition-all text-slate-800 hover:text-white hover:bg-[#0f172a]/60" data-tab="about">About</button>
+          <button onclick="switchTab('what-we-do')" class="nav-btn px-3 py-2 text-xs font-bold uppercase tracking-wider rounded-xl transition-all text-slate-800 hover:text-white hover:bg-[#0f172a]/60" data-tab="what-we-do">What We Do</button>
+          <button onclick="switchTab('what-we-help-with')" class="nav-btn px-3 py-2 text-xs font-bold uppercase tracking-wider rounded-xl transition-all text-slate-800 hover:text-white hover:bg-[#0f172a]/60" data-tab="what-we-help-with">What We Help With</button>
+          <button onclick="switchTab('why-i-started')" class="nav-btn px-3 py-2 text-xs font-bold uppercase tracking-wider rounded-xl transition-all text-slate-800 hover:text-white hover:bg-[#0f172a]/60" data-tab="why-i-started">Why We Started</button>
+          <button onclick="switchTab('get-involved')" class="nav-btn px-3 py-2 text-xs font-bold uppercase tracking-wider rounded-xl transition-all text-slate-800 hover:text-white hover:bg-[#0f172a]/60" data-tab="get-involved">Get Involved</button>
+          <button onclick="switchTab('donate')" class="nav-btn px-3 py-2 text-xs font-bold uppercase tracking-wider rounded-xl transition-all text-slate-800 hover:text-white hover:bg-[#0f172a]/60" data-tab="donate">Donate</button>
+          <button onclick="switchTab('contact')" class="nav-btn px-3 py-2 text-xs font-bold uppercase tracking-wider rounded-xl transition-all text-slate-800 hover:text-white hover:bg-[#0f172a]/60" data-tab="contact">Contact</button>
+        </nav>
+
+        <!-- Action Button -->
+        <div class="hidden sm:flex items-center gap-3">
+          <button onclick="openCommunitySurvey()" class="px-5 py-2.5 rounded-xl bg-gradient-to-r from-[#E5A93C] via-[#F3BA4F] to-[#D4972B] hover:brightness-105 text-[#0f172a] font-black text-xs uppercase tracking-wider transition-all shadow-md flex items-center gap-2">
+            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2" /></svg>
+            <span>Community Survey</span>
+          </button>
+        </div>
+
+        <!-- Mobile Menu Hamburger -->
+        <button onclick="toggleMobileMenu()" class="lg:hidden p-2.5 rounded-xl bg-[#0f172a] text-slate-800 hover:text-white focus:outline-none">
+          <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/></svg>
+        </button>
+
+      </div>
+    </div>
+
+    <!-- Mobile Dropdown Menu -->
+    <div id="mobile-menu" class="hidden lg:hidden border-t border-slate-200 bg-[#0f172a] px-4 py-4 space-y-2">
+      <button onclick="switchTab('home'); toggleMobileMenu();" class="block w-full text-left px-3 py-2 text-sm font-bold text-white rounded-lg hover:bg-[#0f172a]">Home</button>
+      <button onclick="switchTab('about'); toggleMobileMenu();" class="block w-full text-left px-3 py-2 text-sm font-bold text-white rounded-lg hover:bg-[#0f172a]">About</button>
+      <button onclick="switchTab('what-we-do'); toggleMobileMenu();" class="block w-full text-left px-3 py-2 text-sm font-bold text-white rounded-lg hover:bg-[#0f172a]">What We Do</button>
+      <button onclick="switchTab('what-we-help-with'); toggleMobileMenu();" class="block w-full text-left px-3 py-2 text-sm font-bold text-white rounded-lg hover:bg-[#0f172a]">What We Help With</button>
+      <button onclick="switchTab('why-i-started'); toggleMobileMenu();" class="block w-full text-left px-3 py-2 text-sm font-bold text-white rounded-lg hover:bg-[#0f172a]">Why We Started</button>
+      <button onclick="switchTab('get-involved'); toggleMobileMenu();" class="block w-full text-left px-3 py-2 text-sm font-bold text-white rounded-lg hover:bg-[#0f172a]">Get Involved</button>
+      <button onclick="switchTab('donate'); toggleMobileMenu();" class="block w-full text-left px-3 py-2 text-sm font-bold text-white rounded-lg hover:bg-[#0f172a]">Donate</button>
+      <button onclick="switchTab('contact'); toggleMobileMenu();" class="block w-full text-left px-3 py-2 text-sm font-bold text-white rounded-lg hover:bg-[#0f172a]">Contact</button>
+      <div class="pt-2 border-t border-slate-200">
+        <button onclick="openCommunitySurvey(); toggleMobileMenu();" class="w-full py-2.5 text-center font-bold bg-[#F3BA4F] text-[#0f172a] rounded-xl">Take Community Survey</button>
+      </div>
+    </div>
+  </header>
+
+  <!-- ========================================================================= -->
+  <!-- MAIN CONTENT CONTAINER -->
+  <!-- ========================================================================= -->
+  <main class="flex-1">
+
+    <!-- 1. HOME TAB -->
+    <section id="tab-home" class="tab-content active">
+      
+      <!-- Hero Banner -->
+      <div class="relative bg-gradient-to-b from-[#0f172a] via-[#0f172a] to-[#0f172a] text-white py-16 sm:py-24 overflow-hidden">
+        <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 text-center space-y-8">
+          
+          <div class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-[#1C0B3B]/90 border border-[#E5A93C]/40 text-[#F3BA4F] text-xs font-black uppercase tracking-wider shadow-lg">
+            <span class="w-2 h-2 rounded-full bg-amber-400 animate-ping"></span>
+            <span>Serving St. John's & Newfoundland & Labrador</span>
+          </div>
+
+          <div class="space-y-4 max-w-3xl mx-auto">
+            <h1 class="text-4xl sm:text-6xl lg:text-7xl font-black font-display tracking-tight uppercase leading-[1.06]">
+              FILL THE GAP <span class="bg-gradient-to-r from-[#E5A93C] via-[#F3BA4F] to-[#D4972B] bg-clip-text text-transparent">NL</span>
+            </h1>
+            <p class="text-base sm:text-xl font-medium text-slate-800 leading-relaxed max-w-2xl mx-auto">
+              Helping bridge the gaps between people, community resources, and the support they need.
+            </p>
+          </div>
+
+          <!-- 3 Primary Action Buttons -->
+          <div class="pt-4 max-w-3xl mx-auto space-y-8">
+            <div class="grid grid-cols-1 sm:grid-cols-3 gap-4">
+              <button onclick="openCommunitySurvey()" class="p-5 rounded-2xl bg-gradient-to-r from-[#E5A93C] via-[#F3BA4F] to-[#D4972B] text-[#0f172a] font-black text-sm uppercase tracking-wider transition-all hover:scale-[1.02] shadow-xl border border-amber-200 flex flex-col items-center justify-center gap-2 text-center">
+                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2" /></svg>
+                <span>Community Survey</span>
+                <span class="text-[11px] font-semibold text-stone-900/80">Share your experience</span>
+              </button>
+
+              <button onclick="openProfessionalSurvey()" class="p-5 rounded-2xl bg-[#0f172a] hover:bg-[#1e293b] text-white font-black text-sm uppercase tracking-wider transition-all hover:scale-[1.02] shadow-xl border border-[#E5A93C]/50 flex flex-col items-center justify-center gap-2 text-center">
+                <svg class="w-6 h-6 text-[#F3BA4F]" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 13.255A23.931 23.931 0 0112 15c-3.183 0-6.22-.62-9-1.745M16 6V4a2 2 0 00-2-2h-4a2 2 0 00-2 2v2m4 6h.01M5 20h14a2 2 0 002-2V8a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" /></svg>
+                <span class="text-[#F3BA4F]">Professional Survey</span>
+                <span class="text-[11px] font-semibold text-slate-800">For workers & providers</span>
+              </button>
+
+              <button onclick="switchTab('donate')" class="p-5 rounded-2xl bg-white hover:bg-slate-100 text-[#0f172a] font-black text-sm uppercase tracking-wider transition-all hover:scale-[1.02] shadow-xl border border-white hover:border-[#E5A93C] flex flex-col items-center justify-center gap-2 text-center">
+                <svg class="w-6 h-6 text-[#E5A93C]" fill="currentColor" viewBox="0 0 24 24"><path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/></svg>
+                <span>Donate</span>
+                <span class="text-[11px] font-semibold text-stone-600">Support barrier relief</span>
+              </button>
+            </div>
+          </div>
+
+        </div>
+      </div>
+
+      <!-- Core Value Pillars -->
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
+        <div class="text-center max-w-3xl mx-auto mb-12">
+          <h2 class="font-display text-3xl sm:text-4xl font-black text-[#0f172a] uppercase tracking-tight">
+            How We Are Making A Difference
+          </h2>
+          <p class="mt-3 text-stone-600 font-medium">
+            Practical, compassionate community solutions tailored for Newfoundland and Labrador.
+          </p>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+          <div class="bg-white p-8 rounded-3xl border border-slate-200 shadow-md hover:shadow-xl transition-shadow">
+            <div class="w-12 h-12 rounded-2xl bg-[#f8fafc] border border-slate-200 flex items-center justify-center text-[#0f172a] mb-6">
+              <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z"/></svg>
+            </div>
+            <h3 class="font-display font-black text-xl text-[#0f172a] uppercase mb-3">Community Listening</h3>
+            <p class="text-stone-600 text-sm leading-relaxed">
+              Collecting genuine community input from residents and frontline service providers to identify where support systems break down.
+            </p>
+          </div>
+
+          <div class="bg-white p-8 rounded-3xl border border-slate-200 shadow-md hover:shadow-xl transition-shadow">
+            <div class="w-12 h-12 rounded-2xl bg-[#f8fafc] border border-slate-200 flex items-center justify-center text-[#0f172a] mb-6">
+              <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 20l-5.447-2.724A1 1 0 013 16.382V5.618a1 1 0 011.447-.894L9 7m0 13l6-3m-6 3V7m6 10l4.553 2.276A1 1 0 0021 18.382V7.618a1 1 0 00-.553-.894L15 4m0 13V4m0 0L9 7"/></svg>
+            </div>
+            <h3 class="font-display font-black text-xl text-[#0f172a] uppercase mb-3">Resource Navigation</h3>
+            <p class="text-stone-600 text-sm leading-relaxed">
+              Curating direct, updated directories of food banks, housing programs, mental health supports, and financial aid.
+            </p>
+          </div>
+
+          <div class="bg-white p-8 rounded-3xl border border-slate-200 shadow-md hover:shadow-xl transition-shadow">
+            <div class="w-12 h-12 rounded-2xl bg-[#f8fafc] border border-slate-200 flex items-center justify-center text-[#0f172a] mb-6">
+              <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
+            </div>
+            <h3 class="font-display font-black text-xl text-[#0f172a] uppercase mb-3">Barrier Relief</h3>
+            <p class="text-stone-600 text-sm leading-relaxed">
+              Targeting small, critical obstacles like bus fare, ID fees, and immediate essentials that stop people from reaching stability.
+            </p>
+          </div>
+        </div>
+      </div>
+
+    </section>
+
+    <!-- 2. ABOUT TAB -->
+    <section id="tab-about" class="tab-content max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 py-16 space-y-12">
+      <div class="text-center space-y-4">
+        <h1 class="font-display text-4xl sm:text-5xl font-black text-[#0f172a] uppercase tracking-tight">About Fill the Gap</h1>
+        <p class="text-lg text-stone-600 max-w-2xl mx-auto">
+          We exist to identify, understand, and bridge the practical divides in our community support infrastructure.
+        </p>
+      </div>
+
+      <div class="bg-white p-8 sm:p-12 rounded-3xl border border-slate-200 shadow-lg space-y-6 text-stone-700 leading-relaxed">
+        <h2 class="font-display text-2xl font-black text-[#0f172a] uppercase">Our Mission & Origins</h2>
+        <p>
+          Across Newfoundland and Labrador, countless organizations and dedicated professionals do extraordinary work every day. Yet individuals and families frequently find themselves falling between the cracks of rigid criteria, lengthy waitlists, or simple navigational barriers.
+        </p>
+        <p>
+          Fill the Gap started with a straightforward premise: listen directly to the people experiencing the system and the frontline workers navigating it, identify exactly where the gaps occur, and build collaborative pathways to close them.
+        </p>
+        <div class="bg-[#f8fafc] p-6 rounded-2xl border border-slate-200 mt-6">
+          <h3 class="font-bold text-[#0f172a] mb-2">Our Long-term Commitment</h3>
+          <p class="text-sm text-stone-600">
+            Starting in St. John's allows us to listen deeply, map exact local support pathways, identify blind spots, and expand across Newfoundland and Labrador as our capacity grows.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- 3. WHAT WE DO TAB -->
+    <section id="tab-what-we-do" class="tab-content max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-12 sm:py-20 space-y-12 sm:space-y-16">
+      
+      <!-- Page Header -->
+      <div class="border-b border-slate-200 pb-8 space-y-3">
+        <div class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-slate-100 border border-slate-200 text-[#1e293b] text-[11px] font-black uppercase tracking-wider">
+          <svg class="w-3.5 h-3.5 text-[#E5A93C]" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z" /></svg>
+          <span>Our Approach & Framework</span>
+        </div>
+        <h1 class="font-display text-4xl sm:text-6xl font-black text-[#0f172a] tracking-tight uppercase">WHAT WE DO</h1>
+      </div>
+
+      <!-- SECTION 1: WE'RE STARTING BY LISTENING -->
+      <div class="bg-white rounded-3xl border border-slate-200 shadow-md p-8 sm:p-12 space-y-6">
+        <h2 class="font-display text-2xl sm:text-3xl font-black text-[#0f172a] uppercase">WE'RE STARTING BY LISTENING</h2>
+        
+        <div class="space-y-4 text-stone-700 text-base sm:text-lg leading-relaxed">
+          <p class="font-bold text-[#0f172a] text-lg sm:text-xl">Fill the Gap is just getting started.</p>
+          <p>Right now, our focus isn't on trying to solve every problem in our community.</p>
+          <p class="font-semibold text-[#1e293b]">It's on understanding them.</p>
+          <p>We want to hear from people who have experienced gaps in getting the help or support they needed.</p>
+        </div>
+
+        <div class="bg-[#f8fafc] border border-slate-200 rounded-2xl p-6 sm:p-8 space-y-3">
+          <ul class="space-y-2.5 text-stone-800 text-sm sm:text-base font-medium">
+            <li class="flex items-center gap-2.5"><span class="w-2 h-2 rounded-full bg-[#E5A93C]"></span><span>What happened?</span></li>
+            <li class="flex items-center gap-2.5"><span class="w-2 h-2 rounded-full bg-[#E5A93C]"></span><span>Where did you get stuck?</span></li>
+            <li class="flex items-center gap-2.5"><span class="w-2 h-2 rounded-full bg-[#E5A93C]"></span><span>What did you need?</span></li>
+            <li class="flex items-center gap-2.5"><span class="w-2 h-2 rounded-full bg-[#E5A93C]"></span><span>What made it difficult to get?</span></li>
+          </ul>
+
+          <div class="pt-4 border-t border-slate-200">
+            <p class="text-xs uppercase tracking-wider text-slate-800 font-black mb-1">And most importantly:</p>
+            <p class="text-base sm:text-lg font-black text-[#0f172a]">What do you wish had been available?</p>
+          </div>
+        </div>
+
+        <div class="pt-2">
+          <button onclick="openCommunitySurvey()" class="px-6 py-3 rounded-2xl bg-gradient-to-r from-[#E5A93C] to-[#D4972B] text-[#0f172a] font-black text-xs uppercase tracking-wider hover:brightness-105 shadow-sm">
+            Share Your Experience in the Survey →
+          </button>
+        </div>
+      </div>
+
+      <!-- SECTION 2: WE'RE LEARNING -->
+      <div class="bg-white rounded-3xl border border-slate-200 shadow-md p-8 sm:p-12 space-y-6">
+        <h2 class="font-display text-2xl sm:text-3xl font-black text-[#0f172a] uppercase">WE'RE LEARNING</h2>
+        
+        <div class="space-y-4 text-stone-700 text-base sm:text-lg leading-relaxed">
+          <p>There are already organizations, programs, and services doing important work in our community.</p>
+          <p>Before we try to create something new, we want to understand what's already available.</p>
+          <p class="font-semibold text-[#0f172a]">We want to learn what works, what doesn't, and where people are still falling through the cracks.</p>
+        </div>
+      </div>
+
+      <!-- SECTION 3: WE'RE IDENTIFYING THE GAPS -->
+      <div class="bg-white rounded-3xl border border-slate-200 shadow-md p-8 sm:p-12 space-y-6">
+        <h2 class="font-display text-2xl sm:text-3xl font-black text-[#0f172a] uppercase">WE'RE IDENTIFYING THE GAPS</h2>
+        
+        <div class="space-y-4 text-stone-700 text-base sm:text-lg leading-relaxed">
+          <p>As we listen and learn, we'll start to see where the biggest gaps may be.</p>
+          
+          <div class="grid grid-cols-1 sm:grid-cols-3 gap-4 py-2">
+            <div class="p-4 rounded-2xl bg-slate-100 border border-slate-200 text-sm space-y-1">
+              <span class="font-bold text-[#0f172a] block">Information Gaps</span>
+              <p class="text-stone-600 text-xs">Things that can be solved simply by helping people find clear information.</p>
+            </div>
+            <div class="p-4 rounded-2xl bg-slate-100 border border-slate-200 text-sm space-y-1">
+              <span class="font-bold text-[#0f172a] block">Collaborative Gaps</span>
+              <p class="text-stone-600 text-xs">Areas requiring direct partnership with existing organizations.</p>
+            </div>
+            <div class="p-4 rounded-2xl bg-slate-100 border border-slate-200 text-sm space-y-1">
+              <span class="font-bold text-[#0f172a] block">Systemic Gaps</span>
+              <p class="text-stone-600 text-xs">Larger challenges that take time, resources, and deliberate planning.</p>
+            </div>
+          </div>
+
+          <p class="font-bold text-[#0f172a] pt-2">We don't want to promise solutions before we understand the problem.</p>
+        </div>
+      </div>
+
+      <!-- SECTION 4: THEN WE'LL DECIDE WHAT WE CAN DO -->
+      <div class="bg-white rounded-3xl border border-slate-200 shadow-md p-8 sm:p-12 space-y-6">
+        <h2 class="font-display text-2xl sm:text-3xl font-black text-[#0f172a] uppercase">THEN WE'LL DECIDE WHAT WE CAN DO</h2>
+        
+        <div class="space-y-5 text-stone-700 text-base sm:text-lg leading-relaxed">
+          <p>This is where Fill the Gap will grow.</p>
+
+          <div class="p-5 rounded-2xl bg-[#f8fafc] border border-slate-200">
+            <p class="text-sm uppercase tracking-wider text-slate-800 font-bold mb-1">The core question we ask:</p>
+            <p class="text-lg sm:text-xl font-black text-[#0f172a]">Is there something we can realistically do?</p>
+          </div>
+
+          <ul class="space-y-3 text-stone-700 text-base">
+            <li class="flex items-start gap-3">
+              <span class="w-2.5 h-2.5 rounded-full bg-[#E5A93C] mt-2 shrink-0"></span>
+              <span><strong>If there is,</strong> we'll work toward a practical solution.</span>
+            </li>
+            <li class="flex items-start gap-3">
+              <span class="w-2.5 h-2.5 rounded-full bg-[#E5A93C] mt-2 shrink-0"></span>
+              <span><strong>If someone else is already better equipped to help,</strong> we'll point people toward them.</span>
+            </li>
+            <li class="flex items-start gap-3">
+              <span class="w-2.5 h-2.5 rounded-full bg-[#E5A93C] mt-2 shrink-0"></span>
+              <span><strong>And if a gap is too large for us right now,</strong> that doesn't mean we'll ignore it. It means we'll learn from it and consider what might be possible in the future.</span>
+            </li>
+          </ul>
+        </div>
+      </div>
+
+      <!-- SECTION 5: STARTING SMALL -->
+      <div class="bg-[#0f172a] text-white rounded-3xl p-8 sm:p-14 space-y-8 border-2 border-[#E5A93C] shadow-2xl">
+        <div class="space-y-4">
+          <div class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-[#0f172a] border border-[#E5A93C]/50 text-[#F3BA4F] text-xs font-black uppercase tracking-wider">
+            <svg class="w-3.5 h-3.5 text-[#F3BA4F]" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"/><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"/></svg>
+            <span>St. John's, Newfoundland & Labrador</span>
+          </div>
+
+          <h2 class="font-display text-3xl sm:text-5xl font-black uppercase text-white tracking-tight">STARTING SMALL</h2>
+
+          <p class="text-slate-800 text-base sm:text-lg leading-relaxed font-medium">
+            Fill the Gap is starting in <strong class="text-white font-bold">St. John's, Newfoundland & Labrador</strong>.
+          </p>
+
+          <p class="text-slate-800 text-sm sm:text-base leading-relaxed">
+            We aren't trying to become everything to everyone overnight. We're starting with something much simpler:
+          </p>
+
+          <div class="p-6 rounded-2xl bg-[#0f172a] border border-[#E5A93C]/40 text-center sm:text-left">
+            <p class="text-lg sm:text-xl font-black text-[#F3BA4F] tracking-wide">
+              Listen. Learn. Identify. Then act where we can make a real difference.
+            </p>
+          </div>
+
+          <p class="text-slate-800 text-sm sm:text-base leading-relaxed">
+            As Fill the Gap grows, so will our ability to help.
+          </p>
+
+          <div class="pt-2 border-t border-slate-200">
+            <p class="text-base sm:text-lg font-bold text-white leading-relaxed">
+              We want our actions to be guided by real community needs — not assumptions about what people need.
+            </p>
+          </div>
+        </div>
+      </div>
+
+    </section>
+
+    <!-- 3B. WHAT WE HELP WITH TAB -->
+    <section id="tab-what-we-help-with" class="tab-content max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-12 sm:py-20 space-y-12 sm:space-y-16">
+      
+      <!-- Page Header & Intro -->
+      <div class="border-b border-slate-200 pb-8 space-y-4">
+        <div class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-slate-100 border border-slate-200 text-[#1e293b] text-[11px] font-black uppercase tracking-wider">
+          <svg class="w-3.5 h-3.5 text-[#E5A93C]" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"/></svg>
+          <span>St. John’s & NL Community Support</span>
+        </div>
+        <h1 class="font-display text-4xl sm:text-6xl font-black text-[#0f172a] tracking-tight uppercase">WHAT WE HELP WITH</h1>
+        <div class="space-y-4 text-base sm:text-xl text-stone-700 font-medium leading-relaxed max-w-3xl">
+          <p>
+            Fill the Gap exists to help <strong class="text-[#0f172a] font-bold">fill the gaps that can leave low-income people without a clear path forward.</strong>
+          </p>
+          <p class="text-stone-600 text-base sm:text-lg">
+            Sometimes someone is doing everything they can to move forward, but one missing piece is standing in the way.
+          </p>
+          <p class="text-stone-600 text-base sm:text-lg">
+            It may be a practical barrier during a major transition, a need that isn't covered by an existing program, or a situation where available supports don't quite meet the person's circumstances.
+          </p>
+          <div class="p-5 rounded-2xl bg-amber-50 border border-amber-200 text-[#0f172a]">
+            <p class="text-lg sm:text-xl font-black">
+              That's where Fill the Gap wants to help.
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Support Sections -->
+      <div class="space-y-8">
+        
+        <!-- 1. Our Main Focus: People in Transition -->
+        <div class="bg-white rounded-3xl border border-slate-200 shadow-md p-8 sm:p-10 space-y-6">
+          <h2 class="font-display text-2xl sm:text-3xl font-black text-[#0f172a] uppercase">Our Main Focus: People in Transition</h2>
+          <div class="space-y-4 text-stone-700 text-base sm:text-lg leading-relaxed">
+            <p class="font-semibold text-slate-900">
+              One of our primary areas of focus is supporting low-income people through significant transitions.
+            </p>
+            <p>This may include people who are:</p>
+            <ul class="list-disc list-inside space-y-2 text-stone-800 font-medium pl-2">
+              <li>Leaving treatment</li>
+              <li>Transitioning out of homelessness</li>
+              <li>Moving from one support system to another</li>
+              <li>Rebuilding their lives after a major setback</li>
+            </ul>
+            <p class="pt-2">
+              Even when programs and services are available, there can still be <strong class="text-slate-900 font-bold">gaps that make moving forward difficult.</strong>
+            </p>
+            <p>Fill the Gap looks at the individual situation and asks:</p>
+            <div class="p-6 rounded-2xl bg-[#0f172a] text-white border-2 border-[#E5A93C] shadow-lg text-center my-4">
+              <p class="text-2xl sm:text-4xl font-black text-[#F3BA4F] uppercase tracking-wide font-display">
+                “What's missing?”
+              </p>
+            </div>
+            <p class="font-semibold text-slate-900">
+              When we have the ability and resources to help fill that gap, we will do our best to help.
+            </p>
+
+            <div class="pt-6 border-t border-slate-200 space-y-4">
+              <h3 class="font-display text-xl sm:text-2xl font-black text-[#0f172a] uppercase">What Might a Gap Look Like?</h3>
+              <p class="text-sm sm:text-base font-medium text-stone-600">Every situation is different, but a gap might look like:</p>
+              <ul class="list-disc list-inside space-y-2.5 text-stone-800 text-sm sm:text-base pl-2">
+                <li>Someone leaving treatment who encounters a practical barrier that makes continuing their recovery more difficult.</li>
+                <li>Someone transitioning out of homelessness who has a specific need that isn't being addressed by the services available to them.</li>
+                <li>Someone who has been offered a job but cannot afford something essential they need to accept or start the job.</li>
+                <li>Someone moving from one support system to another who encounters an unmet practical need.</li>
+                <li>Someone trying to move forward after a major setback who has one specific barrier preventing them from taking the next step.</li>
+              </ul>
+              <p class="text-xs sm:text-sm text-stone-500 font-bold uppercase tracking-wider pt-1">These are examples, not a complete list.</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- 2. Treatment & Recovery Access -->
+        <div class="bg-white rounded-3xl border border-slate-200 shadow-md p-8 sm:p-10 space-y-6">
+          <h2 class="font-display text-2xl sm:text-3xl font-black text-[#0f172a] uppercase">Treatment & Recovery Access</h2>
+          <div class="space-y-4 text-stone-700 text-base sm:text-lg leading-relaxed">
+            <p>
+              We want to help people facing practical barriers to accessing treatment and recovery supports.
+            </p>
+            <div class="p-4 rounded-2xl bg-amber-500/10 border-2 border-[#E5A93C] text-[#0f172a]">
+              <p class="font-black text-base sm:text-lg uppercase tracking-tight">We are not a treatment or recovery program.</p>
+            </div>
+            <p>
+              Our role is to look at the barriers surrounding the person and determine what we may be able to do.
+            </p>
+            <p>
+              This could include helping someone understand what resources are available, offering to make a phone call, helping them take the first step toward accessing a service, or addressing a practical gap when we have the ability to do so.
+            </p>
+          </div>
+        </div>
+
+        <!-- 3. Connecting People With Existing Resources -->
+        <div class="bg-white rounded-3xl border border-slate-200 shadow-md p-8 sm:p-10 space-y-6">
+          <h2 class="font-display text-2xl sm:text-3xl font-black text-[#0f172a] uppercase">Connecting People With Existing Resources</h2>
+          <div class="space-y-4 text-stone-700 text-base sm:text-lg leading-relaxed">
+            <p class="font-semibold text-slate-900">
+              Fill the Gap does not want to duplicate services that already exist in our community.
+            </p>
+            <p>
+              When an existing organization or program may be able to help, <strong class="text-slate-900 font-bold">we will do our best to connect people with that resource.</strong>
+            </p>
+            <div class="space-y-2 pt-2">
+              <p class="font-medium text-stone-800">Depending on the situation, this may mean:</p>
+              <ul class="list-disc list-inside space-y-1.5 text-stone-800 pl-2">
+                <li>Helping someone identify a resource</li>
+                <li>Helping them understand their options</li>
+                <li>Offering to make a phone call</li>
+                <li>Helping them figure out what step to take next</li>
+                <li>Sharing information and resources we have available</li>
+              </ul>
+            </div>
+            <p class="pt-2">
+              We can't guarantee that another organization will be able to help, but <strong class="text-slate-900 font-bold">we can do our best to help people find their way to the right place.</strong>
+            </p>
+          </div>
+        </div>
+
+        <!-- 4. When There Is Still a Gap -->
+        <div class="bg-white rounded-3xl border border-slate-200 shadow-md p-8 sm:p-10 space-y-6">
+          <h2 class="font-display text-2xl sm:text-3xl font-black text-[#0f172a] uppercase">When There Is Still a Gap</h2>
+          <div class="space-y-4 text-stone-700 text-base sm:text-lg leading-relaxed">
+            <p>
+              Sometimes there isn't an existing service that addresses the particular need.
+            </p>
+            <p>
+              Sometimes a person has access to a program but is missing something practical that prevents them from moving forward.
+            </p>
+            <div class="p-5 rounded-2xl bg-[#0f172a] text-white border-2 border-[#E5A93C] shadow-lg">
+              <p class="text-base sm:text-xl font-black text-[#F3BA4F]">
+                Those are the gaps Fill the Gap is most interested in addressing.
+              </p>
+            </div>
+            <p class="font-semibold text-slate-900">
+              We will look at each situation individually and determine whether there is something we can realistically and responsibly do.
+            </p>
+          </div>
+        </div>
+
+        <!-- 5. More Than What's Listed Here -->
+        <div class="bg-white rounded-3xl border border-slate-200 shadow-md p-8 sm:p-10 space-y-6">
+          <h2 class="font-display text-2xl sm:text-3xl font-black text-[#0f172a] uppercase">More Than What's Listed Here</h2>
+          <div class="space-y-4 text-stone-700 text-base sm:text-lg leading-relaxed">
+            <p>
+              The situations above are examples of where Fill the Gap may be able to help. <strong class="text-slate-900 font-bold">They are not a complete list.</strong>
+            </p>
+            <p>
+              Every person's circumstances are different, and not every gap will fit neatly into a category.
+            </p>
+            <p class="font-semibold text-slate-900">
+              If you're facing a situation and aren't sure whether Fill the Gap can help, <strong class="text-[#0f172a] underline">we encourage you to reach out.</strong>
+            </p>
+            <p>
+              We'll listen, look at the situation, and do our best to determine whether we can help, connect you with an existing resource, or point you toward another appropriate option.
+            </p>
+          </div>
+        </div>
+
+      </div>
+
+      <!-- 6. We're Starting Small -->
+      <div class="bg-[#0f172a] text-white rounded-3xl p-8 sm:p-14 space-y-6 border-2 border-[#E5A93C] shadow-2xl">
+        <div class="space-y-2">
+          <span class="text-[11px] font-black uppercase tracking-widest text-[#F3BA4F] block">Our Foundation</span>
+          <h2 class="font-display text-3xl sm:text-5xl font-black text-white uppercase">We're Starting Small</h2>
+        </div>
+
+        <div class="space-y-4 text-stone-200 text-base sm:text-lg leading-relaxed">
+          <p>
+            Fill the Gap is a new organization. We don't have every program, resource, or answer in place yet.
+          </p>
+          <p>
+            We're starting by listening, learning, identifying genuine gaps, and helping where we realistically can.
+          </p>
+        </div>
+
+        <div class="p-6 rounded-2xl bg-slate-900 border border-slate-700 space-y-3">
+          <p class="text-base sm:text-lg font-bold text-slate-300">
+            We can't promise that we'll be able to help every person or solve every problem.
+          </p>
+          <p class="text-xl sm:text-2xl font-black text-[#F3BA4F]">
+            But when we can help, we'll do our best to make a difference.
+          </p>
+        </div>
+      </div>
+
+    </section>
+
+    <!-- 4. WHY WE STARTED TAB -->
+    <section id="tab-why-i-started" class="tab-content max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-16 space-y-10">
+      <div class="text-center space-y-4">
+        <h1 class="font-display text-4xl sm:text-5xl font-black text-[#0f172a] uppercase tracking-tight">Why We Started Fill the Gap</h1>
+        <p class="text-lg text-stone-600">A reflection on lived experience, community, and having someone in your corner.</p>
+      </div>
+
+      <div class="bg-white p-8 sm:p-12 rounded-3xl border border-slate-200 shadow-xl space-y-8 text-stone-800 leading-relaxed text-base">
+        
+        <div class="space-y-4">
+          <h2 class="font-display text-2xl sm:text-3xl font-black text-[#0f172a] uppercase border-b border-slate-200 pb-3">The Story Behind Fill the Gap</h2>
+          
+          <div class="space-y-3 text-stone-800 text-base sm:text-lg leading-relaxed bg-amber-50/70 p-6 rounded-2xl border border-amber-200">
+            <p class="font-bold text-slate-900">
+              Fill the Gap was founded from a deeply personal experience that revealed a much broader need.
+            </p>
+            <p>
+              As a sister supporting her brother, our founder experienced firsthand the challenges of navigating services, finding the right resources, and understanding where to turn for support. What began as an effort to help her brother ultimately revealed a larger gap—one that many individuals and families face when trying to access the support they need.
+            </p>
+            <p class="font-bold text-[#0f172a]">
+              That experience became the driving force behind Fill the Gap.
+            </p>
+            <p class="text-stone-600 text-sm italic pt-1">
+              Below, our founder shares the personal story that started it all.
+            </p>
+          </div>
+
+          <div class="pt-4 space-y-4">
+            <p>
+              My brother has mental and physical challenges that mean he needs help with many aspects of his life.
+            </p>
+          <p>
+            We've never minded being there for him. Being family, helping him is just something we've always done.
+          </p>
+          <p>
+            Sometimes that means bringing him where he needs to go. Sometimes it means helping him problem-solve when something isn't working. Sometimes it means figuring out what needs to be done and finding the right person, service, or place to help get it done.
+          </p>
+          <p>
+            We've learned that sometimes the hardest part isn't wanting help.
+          </p>
+          <p class="font-bold text-[#0f172a] text-lg">
+            It's figuring out <strong>how to get it.</strong>
+          </p>
+          <p>
+            There was one time when my brother really needed help with something important. We started trying to find the right place for him to get that help.
+          </p>
+          <p class="font-black text-[#0f172a] text-lg">
+            It took <span class="text-[#E5A93C] underline">five phone calls</span> before we were finally given the information we needed.
+          </p>
+          <p>
+            We kept going because we knew he needed it.
+          </p>
+          <p class="font-bold text-lg text-[#0f172a]">
+            But it made us stop and think: <strong>What if we weren't there?</strong>
+          </p>
+          <div class="bg-slate-100 p-6 rounded-2xl border-l-4 border-[#E5A93C] space-y-2 text-stone-800">
+            <p>What if there was nobody to make those calls?</p>
+            <p>Nobody to bring him where he needed to go?</p>
+            <p>Nobody to help him figure out what to do next?</p>
+            <p>Nobody to help him find the service that could get the important things done?</p>
+            <p class="font-black text-[#0f172a]">What if he had to figure all of that out on his own?</p>
+          </div>
+          <p>
+            And then we started thinking about all the other people who may not have someone in their corner.
+          </p>
+          <ul class="list-disc list-inside space-y-1.5 text-stone-700 pl-2">
+            <li>People who are already struggling and don't know where to start.</li>
+            <li>People who don't know what services exist.</li>
+            <li>People who get sent from one place to another.</li>
+            <li>People who don't understand how to navigate the system.</li>
+            <li>People who are waiting for help.</li>
+            <li>People who may know they need something but don't know <strong>how to get from needing it to actually getting it.</strong></li>
+          </ul>
+          <p>
+            We're not saying we can fix all of those problems. We can't. And Fill the Gap isn't starting with all the answers.
+          </p>
+          <div class="p-6 rounded-2xl bg-[#0f172a] text-white font-black text-xl text-center">
+            People shouldn't have to figure everything out alone.
+          </div>
+        </div>
+
+        <div class="space-y-4 pt-6 border-t border-slate-200">
+          <h2 class="font-display text-2xl sm:text-3xl font-black text-[#0f172a] uppercase border-b border-slate-200 pb-3">What We Want Fill the Gap to Become</h2>
+          <p>
+            We want Fill the Gap to be a place that looks at those moments where people get stuck.
+          </p>
+          <ul class="list-disc list-inside space-y-1.5 text-stone-700 pl-2">
+            <li>Sometimes the answer may be helping someone find an existing resource.</li>
+            <li>Sometimes it may be helping them understand where to start.</li>
+            <li>Sometimes it may be a practical barrier that needs to be addressed.</li>
+            <li>And sometimes we may discover a gap where something new is needed.</li>
+          </ul>
+          <p>
+            We don't know yet what every answer will look like. And we don't want to pretend that we do.
+          </p>
+          <p>
+            We want to listen to the people who are experiencing these problems. We want to learn what's already available. We want to understand what's missing. And then, as Fill the Gap grows, we want to do what we realistically can to help.
+          </p>
+          <div class="p-8 rounded-3xl bg-[#0f172a] text-white space-y-4 border-2 border-[#E5A93C]">
+            <p class="text-xl font-bold text-amber-300">My brother had someone in his corner. <strong>He had us.</strong></p>
+            <p class="text-slate-200">
+              That experience made us wonder about the people who don't have that. The people who need someone to help them figure out the next step. The people who just need someone to listen and help them find a way forward.
+            </p>
+            <div class="pt-2 border-t border-slate-700 space-y-2">
+              <p class="text-base text-stone-300 font-bold">That's where Fill the Gap begins.</p>
+              <p class="text-lg font-black text-white">We may not have all the answers today. But we're willing to listen, learn, and keep looking for them.</p>
+              <p class="text-stone-300 text-sm">Because everyone deserves to be heard. Everyone deserves to be treated with dignity. And everyone deserves a chance to get the help they need.</p>
+              <p class="text-2xl font-black text-[#E5A93C] pt-2 font-display uppercase">That's why we started Fill the Gap.</p>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- 6. GET INVOLVED TAB -->
+    <section id="tab-get-involved" class="tab-content max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 py-16 space-y-12">
+      <div class="text-center space-y-4">
+        <h1 class="font-display text-4xl sm:text-5xl font-black text-[#0f172a] uppercase tracking-tight">Get Involved</h1>
+        <p class="text-lg text-stone-600 max-w-2xl mx-auto">
+          Join us in building a stronger, more supportive Newfoundland and Labrador.
+        </p>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+        <div class="bg-white p-8 rounded-3xl border border-slate-200 shadow-md flex flex-col justify-between">
+          <div>
+            <h3 class="font-display font-black text-xl text-[#0f172a] uppercase mb-3">1. Share Your Voice</h3>
+            <p class="text-stone-600 text-sm leading-relaxed mb-6">
+              Complete our community survey to help us understand where the biggest barriers exist.
+            </p>
+          </div>
+          <button onclick="openCommunitySurvey()" class="w-full py-3 rounded-xl bg-[#0f172a] text-white font-bold text-xs uppercase tracking-wider hover:bg-[#0f172a]">Take Survey</button>
+        </div>
+
+        <div class="bg-white p-8 rounded-3xl border border-slate-200 shadow-md flex flex-col justify-between">
+          <div>
+            <h3 class="font-display font-black text-xl text-[#0f172a] uppercase mb-3">2. Volunteer With Us</h3>
+            <p class="text-stone-600 text-sm leading-relaxed mb-6">
+              Help research and verify directory resources, assist with community outreach, or support local events.
+            </p>
+          </div>
+          <button onclick="switchTab('contact')" class="w-full py-3 rounded-xl bg-[#0f172a] text-white font-bold text-xs uppercase tracking-wider hover:bg-[#0f172a]">Contact Us</button>
+        </div>
+
+        <div class="bg-white p-8 rounded-3xl border border-slate-200 shadow-md flex flex-col justify-between">
+          <div>
+            <h3 class="font-display font-black text-xl text-[#0f172a] uppercase mb-3">3. Make a Contribution</h3>
+            <p class="text-stone-600 text-sm leading-relaxed mb-6">
+              Support direct barrier relief efforts (bus tickets, food vouchers, essential supplies).
+            </p>
+          </div>
+          <button onclick="switchTab('donate')" class="w-full py-3 rounded-xl bg-[#E5A93C] text-[#0f172a] font-bold text-xs uppercase tracking-wider hover:brightness-105">Donate</button>
+        </div>
+      </div>
+    </section>
+
+    <!-- 7. DONATE TAB -->
+    <section id="tab-donate" class="tab-content max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-16 space-y-8">
+      <div class="text-center space-y-4">
+        <h1 class="font-display text-4xl sm:text-5xl font-black text-[#0f172a] uppercase tracking-tight">Support Fill the Gap</h1>
+        <p class="text-lg text-stone-600">Every contribution directly funds barrier relief for community members.</p>
+      </div>
+
+      <div class="bg-white p-8 sm:p-12 rounded-3xl border border-slate-200 shadow-xl space-y-8">
+        <div class="space-y-4">
+          <h2 class="font-display text-2xl font-black text-[#0f172a] uppercase">Where Your Funds Go</h2>
+          <ul class="space-y-3 text-stone-700 text-sm">
+            <li class="flex items-center gap-3">
+              <span class="w-2.5 h-2.5 rounded-full bg-[#E5A93C]"></span>
+              <span><strong>Metrobus Passes & Transit:</strong> Allowing individuals to attend medical and housing appointments.</span>
+            </li>
+            <li class="flex items-center gap-3">
+              <span class="w-2.5 h-2.5 rounded-full bg-[#E5A93C]"></span>
+              <span><strong>ID & Documentation Fees:</strong> Helping replace lost government IDs necessary for services.</span>
+            </li>
+            <li class="flex items-center gap-3">
+              <span class="w-2.5 h-2.5 rounded-full bg-[#E5A93C]"></span>
+              <span><strong>Essential Emergency Care Kits:</strong> Warm winter wear, hygiene products, and emergency supplies.</span>
+            </li>
+          </ul>
+        </div>
+
+        <div class="p-6 rounded-2xl bg-[#f8fafc] border border-slate-200 text-center space-y-4">
+          <p class="text-sm font-bold text-[#0f172a]">Direct E-Transfer Donation</p>
+          <div class="inline-block px-4 py-2 rounded-xl bg-white border border-slate-200 font-mono text-sm font-bold text-[#0f172a]">
+            info@fillthegap.ca
+          </div>
+          <p class="text-xs text-stone-500 max-w-md mx-auto">
+            Fill the Gap is a community initiative starting in St. John's, NL. We are not currently a registered charity and cannot issue official tax receipts.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- 8. CONTACT TAB -->
+    <section id="tab-contact" class="tab-content max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-16 space-y-8">
+      <div class="text-center space-y-4">
+        <h1 class="font-display text-4xl sm:text-5xl font-black text-[#0f172a] uppercase tracking-tight">Contact Us</h1>
+        <p class="text-lg text-stone-600">Reach out to our team with questions, suggestions, or collaboration ideas.</p>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+        <div class="bg-white p-8 rounded-3xl border border-slate-200 shadow-md space-y-6">
+          <h2 class="font-display text-2xl font-black text-[#0f172a] uppercase">Get in Touch</h2>
+          
+          <div class="space-y-4 text-sm text-stone-700">
+            <div class="flex items-center gap-3">
+              <div class="w-10 h-10 rounded-xl bg-[#f8fafc] text-[#0f172a] flex items-center justify-center border border-slate-200">
+                <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"/><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"/></svg>
+              </div>
+              <div>
+                <p class="font-bold text-[#0f172a]">Location</p>
+                <p>St. John's, Newfoundland & Labrador</p>
+              </div>
+            </div>
+
+            <div class="flex items-center gap-3">
+              <div class="w-10 h-10 rounded-xl bg-[#f8fafc] text-[#0f172a] flex items-center justify-center border border-slate-200">
+                <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/></svg>
+              </div>
+              <div>
+                <p class="font-bold text-[#0f172a]">Email</p>
+                <a href="mailto:info@fillthegap.ca" class="text-slate-800 font-bold hover:underline">info@fillthegap.ca</a>
+              </div>
+            </div>
+
+            <div class="flex items-center gap-3">
+              <div class="w-10 h-10 rounded-xl bg-[#f8fafc] text-[#0f172a] flex items-center justify-center border border-slate-200">
+                <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 12a9 9 0 01-9 9m9-9a9 9 0 00-9-9m9 9H3m9 9a9 9 0 01-9-9m9 9c1.657 0 3-4.03 3-9s-1.343-9-3-9m0 18c-1.657 0-3-4.03-3-9s1.343-9 3-9m-9 9a9 9 0 019-9"/></svg>
+              </div>
+              <div>
+                <p class="font-bold text-[#0f172a]">Website</p>
+                <a href="https://www.fillthegapnl.ca" target="_blank" rel="noopener noreferrer" class="text-slate-800 font-bold hover:underline">www.fillthegapnl.ca</a>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="bg-white p-8 rounded-3xl border border-slate-200 shadow-md">
+          <form onsubmit="handleContactSubmit(event)" class="space-y-4">
+            <div>
+              <label class="block text-xs font-bold uppercase tracking-wider text-stone-700 mb-1">Your Name</label>
+              <input type="text" required class="w-full px-4 py-2.5 rounded-xl bg-stone-50 border border-stone-200 text-sm focus:outline-none focus:border-[#0f172a]">
+            </div>
+            <div>
+              <label class="block text-xs font-bold uppercase tracking-wider text-stone-700 mb-1">Email Address</label>
+              <input type="email" required class="w-full px-4 py-2.5 rounded-xl bg-stone-50 border border-stone-200 text-sm focus:outline-none focus:border-[#0f172a]">
+            </div>
+            <div>
+              <label class="block text-xs font-bold uppercase tracking-wider text-stone-700 mb-1">Message</label>
+              <textarea rows="4" required class="w-full px-4 py-2.5 rounded-xl bg-stone-50 border border-stone-200 text-sm focus:outline-none focus:border-[#0f172a]"></textarea>
+            </div>
+            <button type="submit" class="w-full py-3 rounded-xl bg-[#0f172a] text-white font-bold text-xs uppercase tracking-wider hover:bg-[#0f172a]">Send Message</button>
+          </form>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- ========================================================================= -->
+  <!-- FOOTER -->
+  <!-- ========================================================================= -->
+  <footer class="bg-[#0f172a] text-white border-t border-slate-200 shadow-2xl mt-auto">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16 space-y-12">
+      
+      <div class="grid grid-cols-1 md:grid-cols-12 gap-10">
+        <div class="md:col-span-5 space-y-4">
+          <div class="flex items-center gap-3">
+            <div class="w-10 h-10 rounded-2xl bg-[#0f172a] border border-[#E5A93C]/50 flex items-center justify-center">
+              <svg class="w-5 h-5 text-[#F3BA4F]" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z" /></svg>
+            </div>
+            <span class="font-display font-black text-lg uppercase text-white">FILL THE GAP <span class="text-[#F3BA4F]">NL</span></span>
+          </div>
+          <p class="text-slate-800 text-xs sm:text-sm leading-relaxed max-w-sm">
+            Helping bridge the gaps between people, resources, and the support they need across St. John’s and Newfoundland & Labrador.
+          </p>
+          <div class="text-xs text-slate-800 space-y-2">
+            <p>St. John's, Newfoundland & Labrador, Canada</p>
+            <p><a href="mailto:info@fillthegap.ca" class="hover:text-[#F3BA4F] font-bold">info@fillthegap.ca</a></p>
+          </div>
+        </div>
+
+        <div class="md:col-span-4 space-y-3">
+          <h4 class="text-xs font-black uppercase tracking-wider text-[#F3BA4F]">Navigation</h4>
+          <div class="grid grid-cols-2 gap-2 text-xs sm:text-sm">
+            <button onclick="switchTab('home')" class="text-left text-slate-800 hover:text-white py-1">Home</button>
+            <button onclick="switchTab('about')" class="text-left text-slate-800 hover:text-white py-1">About</button>
+            <button onclick="switchTab('what-we-do')" class="text-left text-slate-800 hover:text-white py-1">What We Do</button>
+            <button onclick="switchTab('what-we-help-with')" class="text-left text-slate-800 hover:text-white py-1">What We Help With</button>
+            <button onclick="switchTab('why-i-started')" class="text-left text-slate-800 hover:text-white py-1">Why We Started</button>
+            <button onclick="switchTab('get-involved')" class="text-left text-slate-800 hover:text-white py-1">Get Involved</button>
+            <button onclick="switchTab('donate')" class="text-left text-slate-800 hover:text-white py-1">Donate</button>
+            <button onclick="switchTab('contact')" class="text-left text-slate-800 hover:text-white py-1">Contact</button>
+          </div>
+        </div>
+
+        <div class="md:col-span-3 space-y-3">
+          <h4 class="text-xs font-black uppercase tracking-wider text-[#F3BA4F]">Community Listening</h4>
+          <p class="text-xs text-slate-800 leading-relaxed">
+            Help us identify and map gaps in support across Newfoundland & Labrador:
+          </p>
+          <div class="space-y-2.5 pt-1">
+            <button onclick="openCommunitySurvey()" class="w-full py-2.5 px-3.5 rounded-xl bg-gradient-to-r from-[#E5A93C] to-[#D4972B] text-[#0f172a] font-black text-xs uppercase tracking-wider">Community Survey</button>
+            <button onclick="openProfessionalSurvey()" class="w-full py-2.5 px-3.5 rounded-xl bg-[#0f172a] text-[#F3BA4F] font-black text-xs uppercase tracking-wider border border-[#E5A93C]/50">Professional Survey</button>
+          </div>
+        </div>
+      </div>
+
+      <div class="pt-8 border-t border-slate-200 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-slate-800">
+        <div>© <script>document.write(new Date().getFullYear())</script> Fill the Gap NL • St. John's, NL. All rights reserved.</div>
+        <div class="flex items-center gap-6 font-semibold">
+          <button onclick="openLegalModal('privacy')" class="hover:text-[#F3BA4F]">Privacy Policy</button>
+          <button onclick="openLegalModal('terms')" class="hover:text-[#F3BA4F]">Terms of Service</button>
+          <button onclick="openLegalModal('accessibility')" class="hover:text-[#F3BA4F]">Accessibility</button>
+        </div>
+      </div>
+
+    </div>
+  </footer>
+
+  <!-- ========================================================================= -->
+  <!-- MODALS -->
+  <!-- ========================================================================= -->
+
+  <!-- Community Survey Modal -->
+  <div id="survey-modal" class="fixed inset-0 z-50 hidden bg-black/70 backdrop-blur-sm flex items-center justify-center p-4 overflow-y-auto">
+    <div class="bg-white rounded-3xl max-w-2xl w-full max-h-[90vh] overflow-y-auto p-6 sm:p-8 space-y-6 shadow-2xl relative">
+      <button onclick="closeModal('survey-modal')" class="absolute top-6 right-6 p-2 rounded-xl text-stone-400 hover:text-stone-700 bg-stone-100">✕</button>
+      
+      <div class="space-y-2">
+        <h3 class="font-display font-black text-2xl text-[#0f172a] uppercase">Community Listening Survey</h3>
+        <p class="text-xs text-stone-600">Your feedback helps us map support gaps and advocate for better community solutions in NL.</p>
+      </div>
+
+      <form onsubmit="handleSurveySubmit(event)" class="space-y-5">
+        <div>
+          <label class="block text-xs font-bold uppercase text-stone-700 mb-1">What area of support did you or someone you know struggle to access?</label>
+          <select required class="w-full px-4 py-2.5 rounded-xl bg-stone-50 border border-stone-200 text-sm">
+            <option value="">Select an area...</option>
+            <option value="food">Emergency Food & Nutrition</option>
+            <option value="housing">Housing & Safe Shelter</option>
+            <option value="mental_health">Mental Health & Crisis Care</option>
+            <option value="financial">Income Support & Basic Living</option>
+            <option value="transit">Transit & Medical Transportation</option>
+            <option value="other">Other Gap</option>
+          </select>
+        </div>
+
+        <div>
+          <label class="block text-xs font-bold uppercase text-stone-700 mb-1">What was the primary obstacle?</label>
+          <div class="grid grid-cols-1 sm:grid-cols-2 gap-2 text-xs">
+            <label class="flex items-center gap-2 p-2.5 rounded-xl border border-stone-200 hover:bg-stone-50 cursor-pointer">
+              <input type="checkbox" name="obstacle" value="waitlist"> Long waitlists
+            </label>
+            <label class="flex items-center gap-2 p-2.5 rounded-xl border border-stone-200 hover:bg-stone-50 cursor-pointer">
+              <input type="checkbox" name="obstacle" value="criteria"> Strict eligibility rules
+            </label>
+            <label class="flex items-center gap-2 p-2.5 rounded-xl border border-stone-200 hover:bg-stone-50 cursor-pointer">
+              <input type="checkbox" name="obstacle" value="transportation"> Lack of transportation
+            </label>
+            <label class="flex items-center gap-2 p-2.5 rounded-xl border border-stone-200 hover:bg-stone-50 cursor-pointer">
+              <input type="checkbox" name="obstacle" value="awareness"> Didn't know where to turn
+            </label>
+          </div>
+        </div>
+
+        <div>
+          <label class="block text-xs font-bold uppercase text-stone-700 mb-1">Please describe your experience in your own words (Optional & Anonymous)</label>
+          <textarea rows="4" placeholder="Tell us what happened and what would have helped most..." class="w-full px-4 py-2.5 rounded-xl bg-stone-50 border border-stone-200 text-sm"></textarea>
+        </div>
+
+        <button type="submit" class="w-full py-3 rounded-xl bg-gradient-to-r from-[#E5A93C] to-[#D4972B] text-[#0f172a] font-black text-xs uppercase tracking-wider hover:brightness-105 shadow-md">
+          Submit Anonymous Feedback
+        </button>
+      </form>
+    </div>
+  </div>
+
+  <!-- Professional Survey Modal -->
+  <div id="professional-survey-modal" class="fixed inset-0 z-50 hidden bg-black/70 backdrop-blur-sm flex items-center justify-center p-4 overflow-y-auto">
+    <div class="bg-white rounded-3xl max-w-2xl w-full max-h-[90vh] overflow-y-auto p-6 sm:p-8 space-y-6 shadow-2xl relative">
+      <button onclick="closeModal('professional-survey-modal')" class="absolute top-6 right-6 p-2 rounded-xl text-stone-400 hover:text-stone-700 bg-stone-100">✕</button>
+      
+      <div class="space-y-2">
+        <h3 class="font-display font-black text-2xl text-[#0f172a] uppercase">Frontline & Professional Survey</h3>
+        <p class="text-xs text-stone-600">For healthcare workers, social workers, case managers, and non-profit leaders in NL.</p>
+      </div>
+
+      <form onsubmit="handleSurveySubmit(event)" class="space-y-5">
+        <div>
+          <label class="block text-xs font-bold uppercase text-stone-700 mb-1">What sector do you work or volunteer in?</label>
+          <select required class="w-full px-4 py-2.5 rounded-xl bg-stone-50 border border-stone-200 text-sm">
+            <option value="">Select your sector...</option>
+            <option value="housing">Housing & Emergency Shelter</option>
+            <option value="healthcare">Healthcare & Clinical Nursing</option>
+            <option value="mental_health">Mental Health & Addictions</option>
+            <option value="food_security">Food Security & Nutrition</option>
+            <option value="community_outreach">Community Outreach</option>
+            <option value="other">Other Sector</option>
+          </select>
+        </div>
+
+        <div>
+          <label class="block text-xs font-bold uppercase text-stone-700 mb-1">What is the #1 system gap you see clients face?</label>
+          <textarea rows="4" required placeholder="Describe the most urgent structural or operational bottleneck..." class="w-full px-4 py-2.5 rounded-xl bg-stone-50 border border-stone-200 text-sm"></textarea>
+        </div>
+
+        <button type="submit" class="w-full py-3 rounded-xl bg-[#0f172a] text-[#F3BA4F] font-black text-xs uppercase tracking-wider hover:bg-[#1e293b] shadow-md border border-[#E5A93C]/50">
+          Submit Professional Insights
+        </button>
+      </form>
+    </div>
+  </div>
+
+  <!-- Legal Modal -->
+  <div id="legal-modal" class="fixed inset-0 z-50 hidden bg-black/70 backdrop-blur-sm flex items-center justify-center p-4">
+    <div class="bg-white rounded-3xl max-w-xl w-full p-6 sm:p-8 space-y-4 shadow-2xl relative">
+      <button onclick="closeModal('legal-modal')" class="absolute top-6 right-6 p-2 rounded-xl text-stone-400 hover:text-stone-700 bg-stone-100">✕</button>
+      <h3 id="legal-modal-title" class="font-display font-black text-xl text-[#0f172a] uppercase"></h3>
+      <div id="legal-modal-content" class="text-xs text-stone-600 leading-relaxed space-y-3"></div>
+      <button onclick="closeModal('legal-modal')" class="mt-4 px-5 py-2.5 rounded-xl bg-[#0f172a] text-white font-bold text-xs uppercase">Close</button>
+    </div>
+  </div>
+
+  <!-- ========================================================================= -->
+  <!-- JAVASCRIPT LOGIC -->
+  <!-- ========================================================================= -->
+  <script>
+    function switchTab(tabId) {
+      document.querySelectorAll('.tab-content').forEach(tab => tab.classList.remove('active'));
+      const target = document.getElementById('tab-' + tabId);
+      if (target) {
+        target.classList.add('active');
+      }
+      document.querySelectorAll('.nav-btn').forEach(btn => {
+        if (btn.getAttribute('data-tab') === tabId) {
+          btn.className = 'nav-btn px-3 py-2 text-xs font-bold uppercase tracking-wider rounded-xl transition-all text-[#F3BA4F] bg-[#0f172a]';
+        } else {
+          btn.className = 'nav-btn px-3 py-2 text-xs font-bold uppercase tracking-wider rounded-xl transition-all text-slate-800 hover:text-white hover:bg-[#0f172a]/60';
+        }
+      });
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    }
+
+    function toggleMobileMenu() {
+      document.getElementById('mobile-menu').classList.toggle('hidden');
+    }
+
+    function openCommunitySurvey() {
+      document.getElementById('survey-modal').classList.remove('hidden');
+    }
+
+    function openProfessionalSurvey() {
+      document.getElementById('professional-survey-modal').classList.remove('hidden');
+    }
+
+    function closeModal(modalId) {
+      document.getElementById(modalId).classList.add('hidden');
+    }
+
+    function handleSurveySubmit(e) {
+      e.preventDefault();
+      alert('Thank you! Your feedback has been received and will help improve community support mapping in NL.');
+      closeModal('survey-modal');
+      closeModal('professional-survey-modal');
+      e.target.reset();
+    }
+
+    function handleContactSubmit(e) {
+      e.preventDefault();
+      alert('Thank you for contacting Fill the Gap NL! We will get back to you shortly.');
+      e.target.reset();
+    }
+
+    function openLegalModal(type) {
+      const title = document.getElementById('legal-modal-title');
+      const content = document.getElementById('legal-modal-content');
+      if (type === 'privacy') {
+        title.innerText = 'Privacy Policy';
+        content.innerHTML = '<p>Fill the Gap is committed to protecting your privacy. Community survey responses are anonymized by default and used strictly to identify and advocate for resource accessibility in NL.</p>';
+      } else if (type === 'terms') {
+        title.innerText = 'Terms of Service';
+        content.innerHTML = '<p>Fill the Gap is a community information and resource bridging service. We do not provide medical, legal, or emergency crisis services. In emergency situations, please contact 911 or provincial crisis helplines (811 / 211 / 988).</p>';
+      } else if (type === 'accessibility') {
+        title.innerText = 'Accessibility Statement';
+        content.innerHTML = '<p>We are dedicated to maintaining an accessible digital platform adhering to WCAG AA guidelines with high contrast, scalable typography, and keyboard navigation.</p>';
+      }
+      document.getElementById('legal-modal').classList.remove('hidden');
+    }
+
+  </script>
+</body>
+</html>
